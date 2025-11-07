@@ -1,0 +1,7 @@
+{
+  "@@locale": "hi",
+  "appTitle": "सेर्से ऐप",
+  "signIn": "साइन इन",
+  "welcomeUser": "स्वागत है, {name}!",
+  "itemsCount": "{count, plural, =0{कोई आइटम नहीं} =1{1 आइटम} other{{count} आइटम}}"
+}

@@ -5,7 +5,11 @@ import 'package:saoirse_app/screens/home/home_controller.dart';
 import 'package:saoirse_app/widgets/app_loader.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final void Function(Locale locale)? onLocaleChange;
+  const HomeScreen({
+    super.key,
+    this.onLocaleChange,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -23,6 +27,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.language),
+              onPressed: () {
+                widget.onLocaleChange?.call(const Locale('hi'));
+              },
+            ),
+          ],
+        ),
         body: Obx(
           () => Stack(
             children: [
