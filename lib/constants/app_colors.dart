@@ -9,6 +9,7 @@ class AppColors {
   static const Color grey = Colors.grey;
   static const Color green = Colors.green;
   static const Color red = Colors.red;
+  static const Color scaffoldColor=transparent;
   static const Color gradientBlue = Color(0xFF4D0A8E);
   static const Color gradientPink = Color(0xFFCE048C);
   static const Color lightAmber = Color(0xFFF4BD46);

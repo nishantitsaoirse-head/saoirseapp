@@ -1025,7 +1025,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: AppColors.white,
-                                  foregroundColor: AppColors.gradientDarkBlue,
+                                  
                                   padding: EdgeInsets.symmetric(
                                     horizontal: 34.w,
                                     vertical: 10.h,
