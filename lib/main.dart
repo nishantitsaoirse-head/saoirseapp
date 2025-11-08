@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:saoirse_app/screens/OnBoard_screen/OnBoard.dart';
 import 'package:saoirse_app/screens/productListing/product_listing.dart';
 
 import 'constants/app_colors.dart';
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
               splashColor: AppColors.transparent,
             ),
             scrollBehavior: CustomScrollBehavior(),
-            home: ProductListing(),
+            home: Onboard(),
           ),
         );
       },
