@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saoirse_app/constants/app_assets.dart';
 import 'package:saoirse_app/constants/app_colors.dart';
+import 'package:saoirse_app/constants/app_strings.dart';
 import 'package:saoirse_app/screens/home/home_controller.dart';
 import 'package:saoirse_app/widgets/app_button.dart';
 import 'package:saoirse_app/widgets/app_text.dart';
@@ -21,12 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _iconBox({String? image, double? padding}) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      width: 36,
-      height: 36,
+      margin: EdgeInsets.symmetric(vertical: 7.h),
+      width: 36.w,
+      height: 36.h,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: Padding(
         padding: EdgeInsets.all(padding!),
@@ -148,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             ),
                                             SizedBox(height: 8.h),
                                             Text(
-                                              'Turn your savings into success\ninvest today and secure the future you’ve always wanted!',
+                                              AppStrings.card_discription,
                                               style: TextStyle(
                                                 fontSize: 12.sp,
                                                 color: AppColors.white,
@@ -159,7 +160,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             SizedBox(height: 16.h),
                                             appButton(
                                               onTap: () {},
-                                              buttonText: 'Book Now',
+                                              buttonText:
+                                                  AppStrings.btton_lebel,
                                               buttonColor: AppColors.white,
                                               textColor: Colors.black87,
                                               fontSize: 13,
@@ -172,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               ),
 
                                               child: appText(
-                                                'Book Now',
+                                                AppStrings.btton_lebel,
                                                 color: Colors.black87,
                                                 fontSize: 13,
                                                 fontWeight: FontWeight.bold,
@@ -285,14 +287,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         appText(
-                          'Most Popular',
+                          AppStrings.poular,
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.06,
                         ),
 
                         appText(
-                          'See All',
+                          AppStrings.see_all,
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.06,
@@ -461,14 +463,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         appText(
-                          'Best Seller Products',
+                          AppStrings.best_products,
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.06,
                         ),
 
                         appText(
-                          'See All',
+                          AppStrings.see_all,
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.06,
@@ -565,14 +567,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         appText(
-                          "Trending Products",
+                          AppStrings.trending,
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.06,
                         ),
 
                         appText(
-                          'See All',
+                          AppStrings.see_all,
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.06,
@@ -738,10 +740,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(23),
                     gradient: LinearGradient(
-                      colors: [
-                        AppColors.gradientPink,
-                        AppColors.gradientBlue, 
-                      ],
+                      colors: [AppColors.gradientPink, AppColors.gradientBlue],
                       begin: Alignment.topLeft,
                       end: Alignment.centerRight,
                     ),
@@ -752,7 +751,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         top: 24.h,
                         left: 25.w,
                         child: Text(
-                          "Explore\nMore!!",
+                          AppStrings.explore,
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w800,
@@ -771,7 +770,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(10),
                           child: Center(
                             child: appText(
-                              "START PURCHASING",
+                              AppStrings.purchase,
                               fontSize: 10.sp,
                               fontWeight: FontWeight.w800,
                               color: AppColors.gradientPink,
@@ -787,7 +786,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: SizedBox(
                           width: 240.w,
                           child: appText(
-                            "Just save minimum ₹100 everyday\nto get your desired product",
+                            AppStrings.Adverticement_content,
                             fontSize: 15.sp,
                             color: AppColors.white,
                             fontWeight: FontWeight.w400,
@@ -951,7 +950,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               right: 30.w,
                               top: 37.h,
                               child: appText(
-                                "Refer EPI",
+                                AppStrings.refer,
                                 fontSize: 25.sp,
                                 fontWeight: FontWeight.w900,
                                 color: AppColors.skyBlue,
@@ -962,7 +961,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               right: 40.w,
                               top: 75.h,
                               child: appText(
-                                "Earn Money\nEveryday",
+                                AppStrings.refer_heding,
                                 fontSize: 28.sp,
                                 fontWeight: FontWeight.w900,
                                 color: AppColors.white,
@@ -983,7 +982,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 // Simulate elevation using BoxShadow
                                 child: appText(
-                                  "Refer A Friend Now",
+                                  AppStrings.refer_button_lebel,
                                   fontSize: 17.sp,
                                   fontWeight: FontWeight.w800,
                                   color: AppColors.gradientDarkBlue,
