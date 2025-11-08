@@ -8,14 +8,14 @@ import '../../constants/app_colors.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_text.dart';
 
-class Onboard extends StatefulWidget {
-  const Onboard({super.key});
+class OnBoardScreen extends StatefulWidget {
+  const OnBoardScreen({super.key});
 
   @override
-  State<Onboard> createState() => OnboardState();
+  State<OnBoardScreen> createState() => OnBoardScreenState();
 }
 
-class OnboardState extends State<Onboard> {
+class OnBoardScreenState extends State<OnBoardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
