@@ -3,13 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:saoirse_app/screens/home/home_screen.dart';
 
 import 'constants/app_colors.dart';
 import 'constants/app_strings.dart';
+import 'screens/splash/splash_screen.dart';
 import 'services/api_service.dart';
 
-final storage = GetStorage();
+GetStorage storage = GetStorage();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
               useMaterial3: true, // optional modern UI
             ),
             scrollBehavior: CustomScrollBehavior(),
-            home: const HomeScreen(), // ✅ fixed const
+            home: SplashScreen(),
           ),
         );
       },
@@ -70,7 +70,10 @@ class CustomScrollBehavior extends ScrollBehavior {
   // Optional: remove overscroll glow on Android
   @override
   Widget buildOverscrollIndicator(
-      BuildContext context, Widget child, ScrollableDetails details) {
+    BuildContext context,
+    Widget child,
+    ScrollableDetails details,
+  ) {
     return child;
   }
 }

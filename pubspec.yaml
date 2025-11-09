@@ -47,6 +47,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.2
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:
@@ -102,3 +103,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  # For details regarding fonts from package depend
