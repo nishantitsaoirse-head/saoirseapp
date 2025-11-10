@@ -52,7 +52,7 @@ class CategoryScreen extends StatelessWidget {
         children: [
           // Left Sidebar with proper reactive rebuild
           Container(
-            width: 100,
+            width: 80.h,
             color: AppColors.white,
             child: Obx(
               () => ListView.builder(
@@ -87,7 +87,7 @@ class CategoryScreen extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          Image.asset(category.icon),
+                          Image.asset(category.icon, width: 70.w, height: 70.h),
                           SizedBox(height: 7.h),
                           appText(
                             category.name,
@@ -161,7 +161,7 @@ class SubCategoryCard extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: AppColors.shadowColor,
-                    blurRadius: 5,
+                    blurRadius: 5.r,
                     offset: const Offset(0, 2),
                   ),
                 ],
@@ -170,6 +170,8 @@ class SubCategoryCard extends StatelessWidget {
 
               child: Image.asset(
                 subCategory.image,
+                width: 70.w,
+                height: 70.h,
                 fit: BoxFit.contain,
 
                 errorBuilder: (context, error, stackTrace) {

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:saoirse_app/constants/app_gradient.dart';
 
 import '../../constants/app_assets.dart';
 import '../../constants/app_colors.dart';
@@ -20,6 +21,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   HomeController homeController = Get.put(HomeController());
+
+  // Refactored Icon box
 
   Widget _iconBox({String? image, double? padding}) {
     return Container(
@@ -103,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 boxShadow: [
                                   BoxShadow(
                                     color: AppColors.lightBlack,
-                                    blurRadius: 8,
+                                    blurRadius: 8.r,
                                     offset: const Offset(0, 4),
                                   ),
                                 ],
@@ -113,14 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Container(
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
-                                      gradient: LinearGradient(
-                                        begin: Alignment.bottomCenter,
-                                        end: Alignment.topCenter,
-                                        colors: [
-                                          AppColors.lightBlack,
-                                          AppColors.transparent,
-                                        ],
-                                      ),
+                                      gradient: AppGradients.topCarosalGradient,
                                     ),
                                   ),
 
@@ -149,13 +145,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               fontFamily: "Times New Roman",
                                             ),
                                             SizedBox(height: 8.h),
-                                            Text(
+                                            appText(
                                               AppStrings.card_discription,
-                                              style: TextStyle(
-                                                fontSize: 12.sp,
-                                                color: AppColors.white,
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                              fontSize: 12.sp,
+                                              textAlign: TextAlign.left,
+                                              color: AppColors.white,
+                                              fontWeight: FontWeight.bold,
                                             ),
 
                                             SizedBox(height: 16.h),
@@ -164,8 +159,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                               buttonText:
                                                   AppStrings.btton_lebel,
                                               buttonColor: AppColors.white,
-                                              textColor: Colors.black87,
-                                              fontSize: 13,
+                                              textColor: AppColors.textBlack,
+                                              fontSize: 13.sp,
                                               fontWeight: FontWeight.bold,
                                               borderRadius:
                                                   BorderRadius.circular(8.r),
@@ -176,8 +171,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                                               child: appText(
                                                 AppStrings.btton_lebel,
-                                                color: Colors.black87,
-                                                fontSize: 13,
+                                                color: AppColors.textBlack,
+                                                fontSize: 13.sp,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
@@ -197,7 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         autoPlayInterval: const Duration(seconds: 5),
                         enlargeCenterPage: true,
                         viewportFraction: 1.0,
-                        height: 200,
+                        height: 170.h,
                         onPageChanged: (index, reason) {
                           homeController.currentCarouselIndex.value = index;
                         },
@@ -311,7 +306,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         scrollDirection: Axis.horizontal,
                         padding: EdgeInsets.symmetric(
                           horizontal: 16.w,
-                          vertical: 5,
+                          vertical: 5.h,
                         ),
                         itemCount: homeController.mostPopularProducts.length,
                         itemBuilder: (context, index) {
@@ -321,11 +316,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 150.w,
                             margin: EdgeInsets.only(right: 15.w),
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: AppColors.white,
                               borderRadius: BorderRadius.circular(12.r),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black12,
+                                  color: AppColors.shadowColor,
                                   blurRadius: 6.r,
                                   offset: Offset(0, 2),
                                 ),
@@ -343,12 +338,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                         vertical: 5.h,
                                       ),
                                       decoration: BoxDecoration(
-                                        color: Colors.grey.shade100,
+                                        color: AppColors.lightGrey,
                                         borderRadius: BorderRadius.circular(12),
                                       ),
                                       child: Center(
                                         child: Image.asset(
                                           product.image,
+                                          width: 80.w,
+                                          height: 80.h,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -491,7 +488,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           final product =
                               homeController.bestSellerProducts[index];
                           return Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0.w),
                             child: Container(
                               width: 220.w,
                               padding: EdgeInsets.all(5.sp),
@@ -501,7 +498,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 boxShadow: [
                                   BoxShadow(
                                     color: AppColors.shadowColor,
-                                    blurRadius: 6,
+                                    blurRadius: 6.r,
                                     offset: Offset(0, 2),
                                   ),
                                 ],
@@ -591,7 +588,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         scrollDirection: Axis.horizontal,
                         padding: EdgeInsets.symmetric(
                           horizontal: 16.w,
-                          vertical: 5,
+                          vertical: 5.h,
                         ),
                         itemCount: homeController.trendingProducts.length,
                         itemBuilder: (context, index) {
@@ -629,6 +626,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: Center(
                                         child: Image.asset(
                                           product.image,
+                                          width: 70.h,
+                                          height: 70.h,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -739,12 +738,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: double.infinity,
                   height: 168.h,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(23),
-                    gradient: LinearGradient(
-                      colors: [AppColors.gradientPink, AppColors.gradientBlue],
-                      begin: Alignment.topLeft,
-                      end: Alignment.centerRight,
-                    ),
+                    borderRadius: BorderRadius.circular(23.r),
+                    gradient: AppGradients.adverticementGradient,
                   ),
                   child: Stack(
                     children: [
@@ -828,14 +823,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: double.infinity,
                 height: 420.h,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColors.gradientLightBlue,
-                      AppColors.gradientDarkBlue,
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
+                  gradient: AppGradients.succesGradient,
                 ),
                 child: SingleChildScrollView(
                   child: Column(
@@ -859,7 +847,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       boxShadow: [
                                         BoxShadow(
                                           color: AppColors.lightBlack,
-                                          blurRadius: 8,
+                                          blurRadius: 8.r,
                                           offset: const Offset(0, 4),
                                         ),
                                       ],
@@ -871,7 +859,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fit: BoxFit.cover,
                                         width: MediaQuery.of(
                                           context,
-                                        ).size.width,
+                                        ).size.width.w,
                                       ),
                                     ),
                                   );
@@ -883,7 +871,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               autoPlayInterval: const Duration(seconds: 5),
                               enlargeCenterPage: true,
                               viewportFraction: 1.0,
-                              height: 200,
+                              height: 170.h,
                               onPageChanged: (index, reason) {
                                 homeController
                                         .currentBottomCarouselIndex
@@ -894,7 +882,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
 
                           Positioned(
-                            bottom: 16,
+                            bottom: 10.h,
                             child: Obx(
                               () => Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -908,9 +896,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     .currentBottomCarouselIndex
                                                     .value ==
                                                 entry.key
-                                            ? 24
-                                            : 8,
-                                        height: 8,
+                                            ? 24.w
+                                            : 8.w,
+                                        height: 8.h,
                                         margin: EdgeInsets.symmetric(
                                           horizontal: 4.w,
                                         ),
@@ -943,6 +931,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(AppAssets.refer_image),
+                            fit: BoxFit.fill,
                           ),
                         ),
                         child: Stack(
