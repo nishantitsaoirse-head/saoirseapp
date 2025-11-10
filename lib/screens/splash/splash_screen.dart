@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:saoirse_app/services/api_service.dart';
 
 import '../../constants/app_assets.dart';
 import '../../constants/app_constant.dart';
@@ -18,6 +19,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    APIService.checkConnection(context);
+    _splashScreen(); // move here
+  }
+
   //navigation
   _splashScreen() {
     bool isLogin = !(storage.read(AppConst.USER_ID) == null);
@@ -29,13 +37,6 @@ class _SplashScreenState extends State<SplashScreen> {
         Get.offAll(() => const SignInScreen());
       }
     });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-
-    _splashScreen();
   }
 
   @override

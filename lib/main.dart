@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:saoirse_app/l10n/app_localizations.dart';
+import 'package:saoirse_app/screens/home/home_screen.dart';
+import 'package:saoirse_app/screens/splash/splash_screen.dart';
 import 'constants/app_colors.dart';
 import 'constants/app_strings.dart';
-import 'screens/splash/splash_screen.dart';
-import 'services/api_service.dart';
 
 GetStorage storage = GetStorage();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-
-  runApp(const MyApp());
+  String? lang = storage
+      .read('language'); // ✅ use the GetStorage instance you already defined
+  Locale locale = lang != null ? Locale(lang) : const Locale('en');
+  runApp(MyApp(locale: locale));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Locale locale;
+  const MyApp({super.key, required this.locale});
 
   @override
   Widget build(BuildContext context) {
     // optional: if APIService needs context later, move it to HomeScreen
-    APIService.checkConnection(context);
+    // APIService.checkConnection(context);
 
     return ScreenUtilInit(
       designSize: const Size(360, 690), //required for ScreenUtil
@@ -42,6 +46,7 @@ class MyApp extends StatelessWidget {
             }
           },
           child: GetMaterialApp(
+            locale: locale,
             debugShowCheckedModeBanner: false,
             title: AppStrings.app_name,
             theme: ThemeData(
@@ -52,7 +57,22 @@ class MyApp extends StatelessWidget {
               useMaterial3: true, // optional modern UI
             ),
             scrollBehavior: CustomScrollBehavior(),
-            home: SplashScreen(),
+            home: HomeScreen(),
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [
+              Locale('en'), // English
+              Locale('hi'), // Hindi
+              Locale('ml'), // Malayalam
+            ],
+
+            // optional - default locale
+
+            fallbackLocale: const Locale('en'),
           ),
         );
       },

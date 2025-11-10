@@ -30,4 +30,13 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get stylishTitle => 'Stylish';
+
+  @override
+  String get investmentDescription => 'Turn your savings into success.\nInvest today and secure the future you’ve always wanted!';
+
+  @override
+  String get bookNow => 'Book Now';
 }

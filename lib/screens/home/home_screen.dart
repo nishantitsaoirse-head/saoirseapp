@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:saoirse_app/l10n/app_localizations.dart';
+import 'package:saoirse_app/widgets/langauge_switcher.dart';
 
 import '../../constants/app_assets.dart';
 import '../../constants/app_colors.dart';
@@ -66,7 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             titleSpacing: 0,
-
             actions: [
               _iconBox(image: AppAssets.notification, padding: 3.w),
               SizedBox(width: 8.w),
@@ -74,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(width: 8.w),
               _iconBox(image: AppAssets.wallet, padding: 5.w),
               SizedBox(width: 12.w),
+              LanguageSwitcher()
             ],
           ),
         ),
@@ -140,7 +142,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             appText(
-                                              "Stylish",
+                                              AppLocalizations.of(context)!
+                                                  .stylishTitle,
                                               fontSize: 24.sp,
                                               color: AppColors.white,
                                               fontWeight: FontWeight.w800,
@@ -149,14 +152,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                             ),
                                             SizedBox(height: 8.h),
                                             Text(
-                                              'Turn your savings into success\ninvest today and secure the future you’ve always wanted!',
+                                              AppLocalizations.of(context)!
+                                                  .investmentDescription,
                                               style: TextStyle(
                                                 fontSize: 12.sp,
                                                 color: AppColors.white,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
-
                                             SizedBox(height: 16.h),
                                             appButton(
                                               onTap: () {},
@@ -171,9 +174,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 horizontal: 37.w,
                                                 vertical: 11.h,
                                               ),
-
                                               child: appText(
-                                                'Book Now',
+                                                AppLocalizations.of(context)!
+                                                    .bookNow,
                                                 color: Colors.black87,
                                                 fontSize: 13,
                                                 fontWeight: FontWeight.bold,
@@ -201,7 +204,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                     ),
-
                     Positioned(
                       bottom: 10.h,
                       child: Obx(
@@ -211,29 +213,24 @@ class _HomeScreenState extends State<HomeScreen> {
                               .asMap()
                               .entries
                               .map((entry) {
-                                return Container(
-                                  width:
-                                      homeController
-                                              .currentCarouselIndex
-                                              .value ==
+                            return Container(
+                              width:
+                                  homeController.currentCarouselIndex.value ==
                                           entry.key
                                       ? 24.w
                                       : 8.w,
-                                  height: 8.h,
-                                  margin: EdgeInsets.symmetric(horizontal: 4.w),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4.r),
-                                    color:
-                                        homeController
-                                                .currentCarouselIndex
-                                                .value ==
+                              height: 8.h,
+                              margin: EdgeInsets.symmetric(horizontal: 4.w),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4.r),
+                                color:
+                                    homeController.currentCarouselIndex.value ==
                                             entry.key
                                         ? AppColors.white
                                         : AppColors.transparentWhite,
-                                  ),
-                                );
-                              })
-                              .toList(),
+                              ),
+                            );
+                          }).toList(),
                         ),
                       ),
                     ),
@@ -251,27 +248,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: ['Technology', 'Fashion', 'Sports', 'Digital']
                         .map((category) {
-                          // final isFirst = category == 'Technology';
-                          return Container(
-                            margin: EdgeInsets.only(right: 10.w),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 20.w,
-                              vertical: 6.h,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppColors.white,
-                              borderRadius: BorderRadius.circular(15.r),
-                              border: Border.all(color: Colors.grey.shade400),
-                            ),
-                            child: appText(
-                              category,
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w800,
-                              color: AppColors.textBlack,
-                            ),
-                          );
-                        })
-                        .toList(),
+                      // final isFirst = category == 'Technology';
+                      return Container(
+                        margin: EdgeInsets.only(right: 10.w),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 20.w,
+                          vertical: 6.h,
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(15.r),
+                          border: Border.all(color: Colors.grey.shade400),
+                        ),
+                        child: appText(
+                          category,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w800,
+                          color: AppColors.textBlack,
+                        ),
+                      );
+                    }).toList(),
                   ),
                 ),
               ),
@@ -291,7 +287,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.06,
                         ),
-
                         appText(
                           'See All',
                           fontSize: 15.sp,
@@ -393,7 +388,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                           ),
-
                                           Spacer(),
                                           Container(
                                             padding: EdgeInsets.symmetric(
@@ -415,7 +409,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   size: 8.sp,
                                                   color: AppColors.darkAmber,
                                                 ),
-
                                                 appText("4.3", fontSize: 8.sp),
                                               ],
                                             ),
@@ -431,7 +424,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                       ),
-
                                       SizedBox(height: 2.h),
                                       appText(
                                         '₹ ${product.price.toStringAsFixed(0)}',
@@ -467,7 +459,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.06,
                         ),
-
                         appText(
                           'See All',
                           fontSize: 15.sp,
@@ -534,7 +525,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                           fontWeight: FontWeight.w600,
                                           overflow: TextOverflow.ellipsis,
                                         ),
-
                                         SizedBox(height: 4.h),
                                         appText(
                                           "₹ ${product.price.toStringAsFixed(0)}",
@@ -571,7 +561,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.w600,
                           letterSpacing: 0.06,
                         ),
-
                         appText(
                           'See All',
                           fontSize: 15.sp,
@@ -708,7 +697,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                       ),
-
                                       SizedBox(height: 2.h),
                                       appText(
                                         '₹ ${product.price.toStringAsFixed(0)}',
@@ -778,7 +766,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-
                       Positioned(
                         bottom: 10.h,
                         left: 24.w,
@@ -884,13 +871,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 200,
                               onPageChanged: (index, reason) {
                                 homeController
-                                        .currentBottomCarouselIndex
-                                        .value =
-                                    index;
+                                    .currentBottomCarouselIndex.value = index;
                               },
                             ),
                           ),
-
                           Positioned(
                             bottom: 16,
                             child: Obx(
@@ -900,33 +884,30 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .asMap()
                                     .entries
                                     .map((entry) {
-                                      return Container(
-                                        width:
-                                            homeController
-                                                    .currentBottomCarouselIndex
-                                                    .value ==
-                                                entry.key
-                                            ? 24
-                                            : 8,
-                                        height: 8,
-                                        margin: EdgeInsets.symmetric(
-                                          horizontal: 4.w,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            4.r,
-                                          ),
-                                          color:
-                                              homeController
-                                                      .currentBottomCarouselIndex
-                                                      .value ==
-                                                  entry.key
-                                              ? AppColors.white
-                                              : AppColors.transparentWhite,
-                                        ),
-                                      );
-                                    })
-                                    .toList(),
+                                  return Container(
+                                    width: homeController
+                                                .currentBottomCarouselIndex
+                                                .value ==
+                                            entry.key
+                                        ? 24
+                                        : 8,
+                                    height: 8,
+                                    margin: EdgeInsets.symmetric(
+                                      horizontal: 4.w,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(
+                                        4.r,
+                                      ),
+                                      color: homeController
+                                                  .currentBottomCarouselIndex
+                                                  .value ==
+                                              entry.key
+                                          ? AppColors.white
+                                          : AppColors.transparentWhite,
+                                    ),
+                                  );
+                                }).toList(),
                               ),
                             ),
                           ),
