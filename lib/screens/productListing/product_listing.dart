@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-
 import '../../constants/app_colors.dart';
 import '../../widgets/app_text.dart';
 
 class ProductListing extends StatefulWidget {
   const ProductListing({super.key});
-
   @override
   State<ProductListing> createState() => _ProductListingState();
 }
@@ -16,6 +14,16 @@ class _ProductListingState extends State<ProductListing> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController nameContoller = TextEditingController();
+
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    ///
+    ///
 
     final products = [
       {
@@ -117,13 +125,13 @@ class _ProductListingState extends State<ProductListing> {
           height: 35.h,
           margin: EdgeInsets.only(right: 12.w),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(20.r),
           ),
           child: Row(
             children: [
               SizedBox(width: 10.w),
-              Icon(Icons.search, color: Colors.grey, size: 22.sp),
+              Icon(Icons.search, color: AppColors.grey, size: 22.sp),
               SizedBox(width: 10.w),
               Expanded(
                 child: TextField(
@@ -161,15 +169,18 @@ class _ProductListingState extends State<ProductListing> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
-                  child: TextButton.icon(
-                    style: TextButton.styleFrom(
-                      foregroundColor: AppColors.black,
+                  child: GestureDetector(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(LucideIcons.arrowUpDown, size: 18.sp),
+                        appText("sort", fontSize: 18.sp),
+                      ],
                     ),
-                    onPressed: () {
+                    onTap: () {
                       //  SORT BUTTON FUNCTION
                     },
-                    icon: Icon(LucideIcons.arrowUpDown, size: 18.sp),
-                    label: appText("sort", fontSize: 18.sp),
                   ),
                 ),
 
@@ -179,15 +190,18 @@ class _ProductListingState extends State<ProductListing> {
                   color: AppColors.shadowColor,
                 ),
                 Expanded(
-                  child: TextButton.icon(
-                    style: TextButton.styleFrom(
-                      foregroundColor: AppColors.black,
+                  child: GestureDetector(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(LucideIcons.filter, size: 18.sp),
+                        appText("Filter", fontSize: 18.sp),
+                      ],
                     ),
-                    onPressed: () {
-                      //    FILTER BUTTON FUNCTION
+                    onTap: () {
+                      //  FILTER  BUTTON FUNCTION
                     },
-                    icon: Icon(LucideIcons.filter, size: 18.sp),
-                    label: appText("filter ", fontSize: 18.sp),
                   ),
                 ),
               ],
@@ -218,10 +232,10 @@ class _ProductListingState extends State<ProductListing> {
   Widget productCard(Map<String, dynamic> product) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(14.r),
         boxShadow: [
-          BoxShadow(color: Colors.grey, spreadRadius: 2.r, blurRadius: 6.r),
+          BoxShadow(color: AppColors.grey, spreadRadius: 2.r, blurRadius: 6.r),
         ],
       ),
       child: Column(
