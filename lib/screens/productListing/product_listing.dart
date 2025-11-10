@@ -118,38 +118,49 @@ class _ProductListingState extends State<ProductListing> {
           },
           child: Icon(Icons.arrow_back, size: 40.sp, color: AppColors.white),
         ),
-        title: Container(
-          height: 35.h,
-          margin: EdgeInsets.only(right: 12.w),
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(20.r),
-          ),
-          child: Row(
-            children: [
-              SizedBox(width: 10.w),
-              Icon(Icons.search, color: AppColors.grey, size: 22.sp),
-              SizedBox(width: 10.w),
-              Expanded(
-                // child: appTextField(
-                //   controller: productlistingController.nameContoller,
-                //   hintText: "srearch",
-                //   validator: (value) {
-                //     return LoginService.emailValidation(email: value!);
-                //   },
-                // ),
-                child: TextField(
-                  controller: productlistingController.nameContoller,
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    hintStyle: const TextStyle(color: AppColors.grey),
-                    border: InputBorder.none,
-                  ),
-                ),
+        title:
+            // Expanded(
+            //   child: appTextField(
+            //     borderRadius: BorderRadius.circular(55.r),
+            //     controller: productlistingController.nameContoller,
+            //     fillColor: AppColors.white,
+            //     hintText: "srearch",
+            //     validator: (value) {
+            //       return LoginService.emailValidation(email: value!);
+            //     },
+            //   ),
+            // ),
+            Container(
+              height: 35.h,
+              margin: EdgeInsets.only(right: 12.w),
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(20.r),
               ),
-            ],
-          ),
-        ),
+              child: Row(
+                children: [
+                  // SizedBox(width: 10.w),
+                  // Icon(Icons.search, color: AppColors.grey, size: 22.sp),
+                  // SizedBox(width: 10.w),
+                  Expanded(
+                    child: appTextField(
+                      prefixWidth: 12.w,
+
+                      borderRadius: BorderRadius.circular(20.r),
+                      controller: productlistingController.nameContoller,
+                      hintText: "srearch",
+                      hintColor: AppColors.black,
+                      textColor: AppColors.black,
+
+                      // Need validation for search field
+                      validator: (value) {
+                        return LoginService.emailValidation(email: value!);
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
         actions: [
           GestureDetector(
             onTap: () {
