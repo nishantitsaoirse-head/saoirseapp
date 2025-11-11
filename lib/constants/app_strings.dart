@@ -35,6 +35,9 @@ class AppStrings {
 
   //snackbars
   static String no_internet = 'No internet connection';
+
+  //otp screen
+  static String verify = "Verify";
   static String invalid_email = 'Please enter valid email ID';
   static String invalid_pass =
       'Password length should be minimum 8 with uppercase, lowercase, number, and special character.';
