@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:saoirse_app/constants/app_assets.dart';
-import 'package:saoirse_app/constants/app_colors.dart';
-import 'package:saoirse_app/models/category_model.dart';
-import 'package:saoirse_app/screens/category/category_controller.dart';
-import 'package:saoirse_app/widgets/app_text.dart';
+
+import '../../constants/app_assets.dart';
+import '../../constants/app_colors.dart';
+import '../../models/category_model.dart';
+import '../../widgets/app_text.dart';
+import 'category_controller.dart';
 
 class CategoryScreen extends StatelessWidget {
   CategoryScreen({super.key});
@@ -52,13 +53,12 @@ class CategoryScreen extends StatelessWidget {
         children: [
           // Left Sidebar with proper reactive rebuild
           Container(
-            width: 100,
+            width: 80.h,
             color: AppColors.white,
             child: Obx(
               () => ListView.builder(
                 key: ValueKey(controller.selectedIndex.value),
                 controller: controller.scrollController.value,
-
                 itemCount: controller.categoryGroups.length,
                 itemBuilder: (context, index) {
                   final isSelected = controller.selectedIndex.value == index;
@@ -69,9 +69,8 @@ class CategoryScreen extends StatelessWidget {
                     onTap: () => controller.selectCategory(index),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: isSelected
-                            ? AppColors.lightGrey
-                            : AppColors.white,
+                        color:
+                            isSelected ? AppColors.lightGrey : AppColors.white,
                         border: Border(
                           left: BorderSide(
                             color: isSelected
@@ -87,15 +86,14 @@ class CategoryScreen extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          Image.asset(category.icon),
+                          Image.asset(category.icon, width: 70.w, height: 70.h),
                           SizedBox(height: 7.h),
                           appText(
                             category.name,
                             textAlign: TextAlign.center,
                             fontSize: 11.sp,
-                            fontWeight: isSelected
-                                ? FontWeight.w700
-                                : FontWeight.w600,
+                            fontWeight:
+                                isSelected ? FontWeight.w700 : FontWeight.w600,
                             color: isSelected
                                 ? AppColors.primaryColor
                                 : AppColors.textBlack,
@@ -161,17 +159,17 @@ class SubCategoryCard extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: AppColors.shadowColor,
-                    blurRadius: 5,
+                    blurRadius: 5.r,
                     offset: const Offset(0, 2),
                   ),
                 ],
               ),
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-
               child: Image.asset(
                 subCategory.image,
+                width: 70.w,
+                height: 70.h,
                 fit: BoxFit.contain,
-
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
                     decoration: BoxDecoration(
