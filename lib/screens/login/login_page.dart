@@ -2,13 +2,14 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:saoirse_app/constants/app_colors.dart';
-import 'package:saoirse_app/constants/app_strings.dart';
-import 'package:saoirse_app/screens/login/login_controller.dart';
-import 'package:saoirse_app/services/login_service.dart';
-import 'package:saoirse_app/widgets/app_button.dart';
-import 'package:saoirse_app/widgets/app_text.dart';
-import 'package:saoirse_app/widgets/app_text_field.dart';
+
+import '../../constants/app_colors.dart';
+import '../../constants/app_strings.dart';
+import '../../services/login_service.dart';
+import '../../widgets/app_button.dart';
+import '../../widgets/app_text.dart';
+import '../../widgets/app_text_field.dart';
+import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -18,9 +19,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  //
-  //
   LoginController loginController = Get.put(LoginController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +36,6 @@ class _LoginPageState extends State<LoginPage> {
                   IconButton(
                     icon: const Icon(Icons.arrow_back_ios_new_rounded),
                     color: AppColors.primaryColor,
-
                     onPressed: () {
                       // BACK BUTTON FUNCTION
                     },
@@ -96,7 +95,6 @@ class _LoginPageState extends State<LoginPage> {
                         AppStrings.Forgot_password,
                         fontWeight: FontWeight.w500,
                         color: AppColors.primaryColor,
-                        // fontStyle: GoogleFonts.poppinsTextTheme(),
                       ),
                     ),
                   ),

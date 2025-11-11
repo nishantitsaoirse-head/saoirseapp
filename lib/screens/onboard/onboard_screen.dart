@@ -1,9 +1,10 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:saoirse_app/constants/app_strings.dart';
+
 import '../../constants/app_assets.dart';
 import '../../constants/app_colors.dart';
+import '../../constants/app_strings.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_text.dart';
 

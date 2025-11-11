@@ -3,11 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
 import '../../constants/app_assets.dart';
 import '../../constants/app_constant.dart';
 import '../../main.dart';
 import '../home/home_screen.dart';
-import '../signin/signin_screen.dart';
+import '../login/login_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -25,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (isLogin) {
         Get.offAll(() => const HomeScreen());
       } else {
-        Get.offAll(() => const SignInScreen());
+        Get.offAll(() => const LoginPage());
       }
     });
   }
