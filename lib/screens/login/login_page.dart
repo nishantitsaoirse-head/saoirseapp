@@ -18,8 +18,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  //
-  //
   LoginController loginController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
@@ -59,19 +57,33 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   SizedBox(height: 28.h),
+                  appText(
+                    "Referrel code",
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.primaryColor,
+                    fontSize: 15.sp,
+                    fontFamily: "Poppins",
+                  ),
 
                   appTextField(
                     controller: loginController.passController,
-
-                    hintText: "eg. Admin@1234",
+                    prefixWidth: 20.w,
+                    hintText: "Referrel code",
                     hintColor: AppColors.black,
-                    hintSize: 12.sp,
+                    hintSize: 15.sp,
                     validator: (value) {
                       return LoginService.emailValidation(email: value!);
                     },
                   ),
 
                   SizedBox(height: 15.h),
+                  appText(
+                    "Username",
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.primaryColor,
+                    fontSize: 15.sp,
+                    fontFamily: "Poppins",
+                  ),
 
                   appTextField(
                     controller: loginController.passController,
@@ -79,38 +91,113 @@ class _LoginPageState extends State<LoginPage> {
                       Icons.visibility_rounded,
                       color: AppColors.black,
                     ),
+                    prefixWidth: 20.w,
 
-                    hintText: "eg. Admin82200",
+                    hintText: "Username",
+
                     hintColor: AppColors.black,
-                    hintSize: 12.sp,
+                    hintSize: 15.sp,
                     validator: (value) {
                       return LoginService.passValidation(pass: value!);
                     },
                   ),
+                  SizedBox(height: 15.h),
+                  appText(
+                    "Phone Number",
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.primaryColor,
+                    fontSize: 15.sp,
+                    fontFamily: "Poppins",
+                  ),
+                  appTextField(
+                    controller: loginController.passController,
+                    prefixWidth: 20.w,
+                    hintText: "Phone Number",
+                    hintColor: AppColors.black,
+                    hintSize: 15.sp,
+                    validator: (value) {
+                      return LoginService.emailValidation(email: value!);
+                    },
+                  ),
 
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: appText(
-                        AppStrings.Forgot_password,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.primaryColor,
-                        // fontStyle: GoogleFonts.poppinsTextTheme(),
-                      ),
+                  SizedBox(height: 15.h),
+
+                  Center(
+                    child: appButton(
+                      onTap: () {
+                        log("loginbutton");
+                        // SENT OTP BUTTON FUNCTION
+                      },
+                      buttonColor: AppColors.primaryColor,
+                      buttonText: AppStrings.send_otp,
+                      textColor: AppColors.white,
+                      height: 40.h,
+                      width: 150.w,
                     ),
                   ),
-                  SizedBox(height: 5.h),
+                  SizedBox(height: 15.h),
 
-                  appButton(
-                    onTap: () {
-                      log("loginbutton");
-                      //  LOGIN BUTTON FUNCTION
-                    },
-                    buttonColor: AppColors.primaryColor,
-                    buttonText: AppStrings.login,
-                    textColor: AppColors.white,
-                    height: 40.h,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 1.h,
+                          width: 20.w,
+                          color: AppColors.grey,
+                        ),
+                      ),
+                      SizedBox(width: 10.w),
+                      appText(
+                        "or",
+
+                        color: AppColors.black,
+                        fontSize: 15.sp,
+                        fontFamily: "Poppins",
+                      ),
+                      SizedBox(width: 10.w),
+                      Expanded(
+                        child: Container(
+                          height: 1.h,
+                          width: 20.w,
+                          color: AppColors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 15.h),
+
+                  Center(
+                    child: appButton(
+                      onTap: () {
+                        log("loginbutton");
+                        // SENT OTP BUTTON FUNCTION
+                      },
+
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/icons/google_icon.webp",
+                            height: 20.h,
+                            width: 20.w,
+                          ),
+                          SizedBox(width: 10.w),
+                          appText(
+                            "Login with Google",
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.primaryColor,
+                          ),
+                        ],
+                      ),
+                      buttonColor: AppColors.white,
+                      // buttonText: "Login with Google",
+                      // textColor: AppColors.primaryColor,
+                      borderColor: AppColors.primaryColor,
+                      borderWidth: 2,
+                      width: 200.w,
+                      height: 40.h,
+                    ),
                   ),
                 ],
               ),

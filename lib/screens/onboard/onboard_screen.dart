@@ -78,6 +78,7 @@ class OnBoardScreenState extends State<OnBoardScreen> {
                         height: 40.h,
                         width: 100.w,
                         buttonText: AppStrings.sign_up,
+                        
                         textColor: AppColors.white,
                         buttonColor: AppColors.primaryColor,
                       ),
