@@ -5,7 +5,6 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:saoirse_app/screens/productListing/productListing_controller.dart';
 import 'package:saoirse_app/widgets/app_text_field.dart';
 import '../../constants/app_colors.dart';
-import '../../services/login_service.dart';
 import '../../widgets/app_text.dart';
 
 class ProductListing extends StatefulWidget {
@@ -117,37 +116,34 @@ class _ProductListingState extends State<ProductListing> {
           },
           child: Icon(Icons.arrow_back, size: 40.sp, color: AppColors.white),
         ),
-        title:
-            
-            Container(
-              height: 35.h,
-              margin: EdgeInsets.only(right: 12.w),
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-              child: Row(
-                children: [
-                 
-                  Expanded(
-                    child: appTextField(
-                      prefixWidth: 12.w,
+        title: Container(
+          height: 35.h,
+          margin: EdgeInsets.only(right: 12.w),
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(20.r),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: appTextField(
+                  prefixWidth: 12.w,
 
-                      borderRadius: BorderRadius.circular(20.r),
-                      controller: productlistingController.nameContoller,
-                      hintText: "srearch",
-                      hintColor: AppColors.black,
-                      textColor: AppColors.black,
+                  borderRadius: BorderRadius.circular(20.r),
+                  controller: productlistingController.nameContoller,
+                  hintText: "srearch",
+                  hintColor: AppColors.black,
+                  textColor: AppColors.black,
 
-                      // Need validation for search field
-                      validator: (value) {
-                        return LoginService.emailValidation(email: value!);
-                      },
-                    ),
-                  ),
-                ],
+                  // Need validation for search field
+                  validator: (value) {
+                    return null;
+                  },
+                ),
               ),
-            ),
+            ],
+          ),
+        ),
         actions: [
           GestureDetector(
             onTap: () {
