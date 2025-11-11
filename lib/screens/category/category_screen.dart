@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:saoirse_app/constants/app_assets.dart';
-import 'package:saoirse_app/constants/app_colors.dart';
-import 'package:saoirse_app/models/category_model.dart';
-import 'package:saoirse_app/screens/category/category_controller.dart';
-import 'package:saoirse_app/widgets/app_text.dart';
+import '../../constants/app_assets.dart';
+import '../../constants/app_colors.dart';
+import '../../models/category_model.dart';
+import '../../widgets/app_text.dart';
+import 'category_controller.dart';
+
 
 class CategoryScreen extends StatelessWidget {
   CategoryScreen({super.key});

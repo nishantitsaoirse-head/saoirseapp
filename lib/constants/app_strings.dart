@@ -22,6 +22,13 @@ class AppStrings {
   static String refer_heding = "Earn Money\nEveryday";
   static String refer_button_lebel = "Refer A Friend Now";
 
+  // Product Details page
+  static String freeShiping = "Free shipping";
+  static String ColorAvailable = "Color Available";
+  static String description = "Description";
+  static String selectPlan = "Select Plan";
+  static String checkout = "Check Out";
+
   //snackbars
   static String no_internet = 'No internet connection';
   static String invalid_email = 'Please enter valid email ID';

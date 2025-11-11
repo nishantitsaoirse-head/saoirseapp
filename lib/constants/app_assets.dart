@@ -17,7 +17,7 @@ class AppAssets {
   static String notification = "assets/icons/notification.png";
 
 
- 
+
 
 
   //icons
@@ -26,4 +26,17 @@ class AppAssets {
   static String search = "assets/icons/search.png";
   static String wallet = "assets/icons/wallet.png";
   static String wish = "assets/icons/wish.png";
+  static String share = "assets/icons/share.png";
+
+
+  // Product details page
+  static String iphone = "assets/images/phone.png";
+  static String iphoneRed = "assets/images/iphone_red.png";
+  static String iphoneYellow = "assets/images/Iphone_yellow.png";
+  static String iphoneblack = "assets/images/iphone_black.png";
+  static String upiImage = "assets/images/upi.png";
+  static String paytmImage = "assets/images/paytm.png";
+  static String paypalImage = "assets/images/paypal.png";
+  
+
 }
