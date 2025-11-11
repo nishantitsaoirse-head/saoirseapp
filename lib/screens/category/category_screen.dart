@@ -59,7 +59,6 @@ class CategoryScreen extends StatelessWidget {
               () => ListView.builder(
                 key: ValueKey(controller.selectedIndex.value),
                 controller: controller.scrollController.value,
-
                 itemCount: controller.categoryGroups.length,
                 itemBuilder: (context, index) {
                   final isSelected = controller.selectedIndex.value == index;
@@ -70,9 +69,8 @@ class CategoryScreen extends StatelessWidget {
                     onTap: () => controller.selectCategory(index),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: isSelected
-                            ? AppColors.lightGrey
-                            : AppColors.white,
+                        color:
+                            isSelected ? AppColors.lightGrey : AppColors.white,
                         border: Border(
                           left: BorderSide(
                             color: isSelected
@@ -94,9 +92,8 @@ class CategoryScreen extends StatelessWidget {
                             category.name,
                             textAlign: TextAlign.center,
                             fontSize: 11.sp,
-                            fontWeight: isSelected
-                                ? FontWeight.w700
-                                : FontWeight.w600,
+                            fontWeight:
+                                isSelected ? FontWeight.w700 : FontWeight.w600,
                             color: isSelected
                                 ? AppColors.primaryColor
                                 : AppColors.textBlack,
@@ -168,13 +165,11 @@ class SubCategoryCard extends StatelessWidget {
                 ],
               ),
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-
               child: Image.asset(
                 subCategory.image,
                 width: 70.w,
                 height: 70.h,
                 fit: BoxFit.contain,
-
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
                     decoration: BoxDecoration(

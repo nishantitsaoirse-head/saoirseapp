@@ -33,6 +33,24 @@ class AppStrings {
   static String refer_heding = "Earn Money\nEveryday";
   static String refer_button_lebel = "Refer A Friend Now";
 
+  // Product Details page
+  static String freeShiping = "Free shipping";
+  static String ColorAvailable = "Color Available";
+  static String description = "Description";
+  static String selectPlan = "Select Plan";
+  static String checkout = "Check Out";
+
+  // Refferal page
+  static String refferalTitle = "Referral";
+  static String referalBannerContent = "Invite Friends\nEarn Money\nStart Referring Today!";
+  static String refer_via = "Refer Via";
+  static String shareTo = "Share to";
+  static String search = "Search";
+  static String no = "No";
+  static String name = "Name";
+  static String purchase_item = "Purchase item";
+  static String commission = "Commission";
+
   //snackbars
   static String no_internet = 'No internet connection';
 

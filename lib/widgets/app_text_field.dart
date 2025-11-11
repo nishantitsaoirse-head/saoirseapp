@@ -42,7 +42,7 @@ class appTextField extends StatefulWidget {
     required this.hintText,
     this.validator,
     this.onChanged,
-    this.onFieldSubmitted, // ✅ NEW
+    this.onFieldSubmitted,
     this.maxLength,
     this.maxLines = 1,
     this.minLines,
@@ -89,8 +89,8 @@ class _appTextFieldState extends State<appTextField> {
       obscureText: _isObscured,
       obscuringCharacter: '*',
       textInputAction: widget.textInputAction ?? TextInputAction.done,
-      keyboardType: widget.textInputType, // ✅ Keyboard type support
-      onFieldSubmitted: widget.onFieldSubmitted, // ✅ Submit callback
+      keyboardType: widget.textInputType,
+      onFieldSubmitted: widget.onFieldSubmitted,
       minLines: widget.minLines,
       maxLines: widget.maxLines,
       onChanged: widget.onChanged,
