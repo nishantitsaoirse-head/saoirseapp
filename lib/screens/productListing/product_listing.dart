@@ -126,7 +126,7 @@ class _ProductListingState extends State<ProductListing> {
           child: Row(
             children: [
               Expanded(
-                child: appTextField(
+                child: AppTextField(
                   prefixWidth: 12.w,
 
                   borderRadius: BorderRadius.circular(20.r),

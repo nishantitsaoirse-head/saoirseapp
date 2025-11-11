@@ -38,4 +38,5 @@ class AppStrings {
   static String invalid_email = 'Please enter valid email ID';
   static String invalid_pass =
       'Password length should be minimum 8 with uppercase, lowercase, number, and special character.';
+      static String invalid_phone = 'Please enter valid phone number';
 }

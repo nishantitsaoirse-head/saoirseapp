@@ -29,4 +29,18 @@ class LoginService {
 
     return null;
   }
+static int? phoneValidation({required int phone}){
+
+    if (phone.toString().length !=10 ) {
+      appSnackbar(error: true, content: "Please enter valid phone number");
+
+      return 0;
+    }
+
+    return null;
+}
+
+
+
+
 }
