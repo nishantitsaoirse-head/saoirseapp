@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
+import 'package:saoirse_app/screens/productListing/productListing_controller.dart';
+import 'package:saoirse_app/widgets/app_text_field.dart';
 import '../../constants/app_colors.dart';
+import '../../services/login_service.dart';
 import '../../widgets/app_text.dart';
 
 class ProductListing extends StatefulWidget {
   const ProductListing({super.key});
-
   @override
   State<ProductListing> createState() => _ProductListingState();
 }
@@ -15,7 +18,9 @@ class ProductListing extends StatefulWidget {
 class _ProductListingState extends State<ProductListing> {
   @override
   Widget build(BuildContext context) {
-    final TextEditingController nameContoller = TextEditingController();
+    ProductlistingController productlistingController = Get.put(
+      ProductlistingController(),
+    );
 
     final products = [
       {
@@ -113,31 +118,49 @@ class _ProductListingState extends State<ProductListing> {
           },
           child: Icon(Icons.arrow_back, size: 40.sp, color: AppColors.white),
         ),
-        title: Container(
-          height: 35.h,
-          margin: EdgeInsets.only(right: 12.w),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20.r),
-          ),
-          child: Row(
-            children: [
-              SizedBox(width: 10.w),
-              Icon(Icons.search, color: Colors.grey, size: 22.sp),
-              SizedBox(width: 10.w),
-              Expanded(
-                child: TextField(
-                  controller: nameContoller,
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    hintStyle: const TextStyle(color: AppColors.grey),
-                    border: InputBorder.none,
-                  ),
-                ),
+        title:
+            // Expanded(
+            //   child: appTextField(
+            //     borderRadius: BorderRadius.circular(55.r),
+            //     controller: productlistingController.nameContoller,
+            //     fillColor: AppColors.white,
+            //     hintText: "srearch",
+            //     validator: (value) {
+            //       return LoginService.emailValidation(email: value!);
+            //     },
+            //   ),
+            // ),
+            Container(
+              height: 35.h,
+              margin: EdgeInsets.only(right: 12.w),
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(20.r),
               ),
-            ],
-          ),
-        ),
+              child: Row(
+                children: [
+                  // SizedBox(width: 10.w),
+                  // Icon(Icons.search, color: AppColors.grey, size: 22.sp),
+                  // SizedBox(width: 10.w),
+                  Expanded(
+                    child: appTextField(
+                      prefixWidth: 12.w,
+
+                      borderRadius: BorderRadius.circular(20.r),
+                      controller: productlistingController.nameContoller,
+                      hintText: "srearch",
+                      hintColor: AppColors.black,
+                      textColor: AppColors.black,
+
+                      // Need validation for search field
+                      validator: (value) {
+                        return LoginService.emailValidation(email: value!);
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
         actions: [
           GestureDetector(
             onTap: () {
@@ -161,15 +184,18 @@ class _ProductListingState extends State<ProductListing> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
-                  child: TextButton.icon(
-                    style: TextButton.styleFrom(
-                      foregroundColor: AppColors.black,
+                  child: GestureDetector(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(LucideIcons.arrowUpDown, size: 18.sp),
+                        appText("sort", fontSize: 18.sp),
+                      ],
                     ),
-                    onPressed: () {
+                    onTap: () {
                       //  SORT BUTTON FUNCTION
                     },
-                    icon: Icon(LucideIcons.arrowUpDown, size: 18.sp),
-                    label: appText("sort", fontSize: 18.sp),
                   ),
                 ),
 
@@ -179,15 +205,18 @@ class _ProductListingState extends State<ProductListing> {
                   color: AppColors.shadowColor,
                 ),
                 Expanded(
-                  child: TextButton.icon(
-                    style: TextButton.styleFrom(
-                      foregroundColor: AppColors.black,
+                  child: GestureDetector(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(LucideIcons.filter, size: 18.sp),
+                        appText("Filter", fontSize: 18.sp),
+                      ],
                     ),
-                    onPressed: () {
-                      //    FILTER BUTTON FUNCTION
+                    onTap: () {
+                      //  FILTER  BUTTON FUNCTION
                     },
-                    icon: Icon(LucideIcons.filter, size: 18.sp),
-                    label: appText("filter ", fontSize: 18.sp),
                   ),
                 ),
               ],
@@ -218,10 +247,10 @@ class _ProductListingState extends State<ProductListing> {
   Widget productCard(Map<String, dynamic> product) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(14.r),
         boxShadow: [
-          BoxShadow(color: Colors.grey, spreadRadius: 2.r, blurRadius: 6.r),
+          BoxShadow(color: AppColors.grey, spreadRadius: 2.r, blurRadius: 6.r),
         ],
       ),
       child: Column(
