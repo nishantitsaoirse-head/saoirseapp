@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
               useMaterial3: true, // optional modern UI
             ),
             scrollBehavior: CustomScrollBehavior(),
-            home: Pendingtrancation(),
+            home: SplashScreen(),
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
