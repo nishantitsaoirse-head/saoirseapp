@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:saoirse_app/screens/product_details/product_details_screen.dart';
 import 'package:saoirse_app/screens/refferal/refferal_screen.dart';
 
 import 'constants/app_colors.dart';
@@ -75,5 +74,3 @@ class CustomScrollBehavior extends ScrollBehavior {
     return child;
   }
 }
-
-

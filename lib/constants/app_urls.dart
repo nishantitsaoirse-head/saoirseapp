@@ -2,8 +2,10 @@
 
 class AppURLs {
   //base api
-  static String BASE_API = '';
+  static String BASE_API = 'http://localhost:3000/';
 
   //login api
   static String SIGNIN_API = BASE_API + '';
+  static String getRefferal_API = BASE_API + "api/referrals/generate-code";
+  static String getDashboard_API = BASE_API + "api/referrals/dashboard?userId=";
 }
