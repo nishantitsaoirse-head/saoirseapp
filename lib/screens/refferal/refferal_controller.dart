@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:saoirse_app/constants/app_colors.dart';
 import 'package:saoirse_app/models/dashboard_model.dart';
 import 'package:saoirse_app/services/refferal_service.dart';
 import 'package:saoirse_app/widgets/app_snackbar.dart';
 
 class ReferralController extends GetxController {
   final ReferralService _referralService = ReferralService();
-  
 
   final referralCode = ''.obs;
   final isLoading = false.obs;
@@ -93,15 +93,11 @@ class ReferralController extends GetxController {
   // Copy referral code
   void copyReferralCode() {
     if (referralCode.value.isEmpty) return;
-    Clipboard.setData(ClipboardData(text: referralCode.value));
-    Get.snackbar(
-      'Copied!',
-      'Referral code copied to clipboard',
-      snackPosition: SnackPosition.BOTTOM,
-      duration: const Duration(seconds: 2),
-      backgroundColor: Colors.green,
-      colorText: Colors.white,
-      margin: const EdgeInsets.all(16),
+  
+    appSnackbar(
+      error: false,
+      title: 'Copied!',
+      content: 'Referral code copied to clipboard',
     );
   }
 
@@ -113,4 +109,3 @@ class ReferralController extends GetxController {
   void shareToGmail() => Get.snackbar('Share', 'Opening Gmail...');
   void shareMore() => Get.snackbar('Share', 'Opening more options...');
 }
-
