@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:saoirse_app/screens/dashboard/dashboard.dart';
 import 'package:saoirse_app/screens/home/home_screen.dart';
 import 'package:saoirse_app/widgets/app_toast.dart';
 
@@ -34,7 +35,7 @@ class VerifyOtpController extends GetxController {
     await Future.delayed(const Duration(seconds: 1));
 
     //Temporary navigation to HomeScreen
-    Get.offAll(() => const HomeScreen());
+    Get.offAll(() => Dashboard());
   }
 
   /// --- Resend OTP (Local mock) ---

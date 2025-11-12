@@ -3,6 +3,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:saoirse_app/screens/otp/otp_screen.dart';
 
 import '../../widgets/app_loader.dart';
 import '/constants/app_colors.dart';
@@ -172,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                       Center(
                         child: appButton(
                           onTap: () {
-                            log("loginbutton");
+                            Get.to(() => VerifyOTPScreen(phoneNumber: ""));
                             // SENT OTP BUTTON FUNCTION
                           },
                           buttonColor: AppColors.primaryColor,

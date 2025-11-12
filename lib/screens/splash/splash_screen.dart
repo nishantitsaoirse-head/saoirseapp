@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:saoirse_app/screens/dashboard/dashboard.dart';
 
 import '../../constants/app_assets.dart';
 import '../../constants/app_constant.dart';
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(const Duration(seconds: 2), () async {
       if (isLogin) {
-        Get.offAll(() => const HomeScreen());
+        Get.offAll(() => Dashboard());
       } else {
         Get.offAll(() => const OnBoardScreen());
       }
