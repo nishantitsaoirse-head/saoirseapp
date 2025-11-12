@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:saoirse_app/constants/app_colors.dart';
-import 'package:saoirse_app/screens/category/category_screen.dart';
-import 'package:saoirse_app/screens/dashboard/dashboard_controller.dart';
-import 'package:saoirse_app/screens/home/home_screen.dart';
-import 'package:saoirse_app/screens/refferal/refferal_screen.dart';
+
+import '../../constants/app_colors.dart';
+import '../category/category_screen.dart';
+import '../home/home_screen.dart';
+import '../refferal/refferal_screen.dart';
+import 'dashboard_controller.dart';
 
 class Dashboard extends StatelessWidget {
   Dashboard({super.key});
@@ -29,10 +30,10 @@ class Dashboard extends StatelessWidget {
         bottomNavigationBar: Container(
           height: 70.h,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.white,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.05),
+                color: AppColors.black.withOpacity(0.05),
                 blurRadius: 10,
                 offset: const Offset(0, -3),
               ),
@@ -44,12 +45,12 @@ class Dashboard extends StatelessWidget {
           ),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.white,
+            backgroundColor: AppColors.white,
             currentIndex: controller.selectedIndex.value,
             onTap: controller.changeTab,
             elevation: 0,
             selectedItemColor: AppColors.primaryColor,
-            unselectedItemColor: Colors.grey,
+            unselectedItemColor: AppColors.grey,
             showUnselectedLabels: true,
             selectedLabelStyle: TextStyle(
               fontSize: 12.sp,
@@ -106,7 +107,7 @@ class Dashboard extends StatelessWidget {
           color: AppColors.primaryColor,
           shape: BoxShape.circle,
         ),
-        child: Icon(activeIcon, color: Colors.white, size: 20.sp),
+        child: Icon(activeIcon, color: AppColors.white, size: 20.sp),
       ),
       label: label,
     );
