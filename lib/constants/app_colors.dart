@@ -15,9 +15,7 @@ class AppColors {
   static const Color lightGrey = Color(0xFFF5F5F5);
   static const Color shadowColor = Colors.black12;
   static const Color darkGray = Color(0x99000000);
-  static const Color mediumGray =  Color(0xFF757575);
-
-
+  static const Color mediumGray = Color(0xFF757575);
 
   //  Accent / Secondary Colors
   static const Color lightAmber = Color(0xFFF4BD46);
@@ -32,8 +30,6 @@ class AppColors {
   static const Color lightGreen = Color(0xFFE8F5E9);
   static const Color buttonSecondary = Color(0xFF9BBEF4);
   static const Color mediumGreen = Color(0xFFA0D69A);
-
-
 
   // 🎨 Gradient Colors
   static const Color gradientLightBlue = Color(0xFF4F4FBC);
