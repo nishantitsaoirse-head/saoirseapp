@@ -5,11 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-import '../../constants/app_strings.dart';
-import '../../constants/app_urls.dart';
-import '../../services/api_service.dart';
-import '../../services/auth_service.dart';
-import '../../widgets/app_snackbar.dart';
+
 
 class LoginController extends GetxController {
   TextEditingController emailController = TextEditingController();
@@ -56,39 +52,5 @@ class LoginController extends GetxController {
   }
 
   //google login
-  googleLogin() async {
-    loading.value = true;
-
-    if (APIService.internet) {
-      await AuthService.signOut();
-      String? email = await AuthService.googleLogin();
-
-      print(email.toString());
-
-      Map<String, dynamic> body = {
-        'email': email,
-      };
-
-      var response = await APIService.postRequest(
-        url: AppURLs.GOOGLE_SIGNIN_API,
-        body: body,
-      );
-
-      print(response.toString());
-      
-      if (response != null) {
-        if (response.statusCode == 200) {
-          var responseData = json.decode(response.body);
-          print(responseData.toString());
-        }
-      }
-    } else {
-      appSnackbar(
-        error: true,
-        content: AppStrings.no_internet,
-      );
-    }
-
-    loading.value = false;
-  }
+  
 }

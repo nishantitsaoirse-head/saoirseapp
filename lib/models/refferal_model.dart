@@ -23,6 +23,8 @@ class ReferralUser {
 }
 
 
+
+
 class ReferralResponse {
   final bool success;
   final String referralCode;

@@ -214,7 +214,7 @@ class _LoginPageState extends State<LoginPage> {
                       Center(
                         child: appButton(
                           onTap: () {
-                            loginController.googleLogin();
+                           
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,

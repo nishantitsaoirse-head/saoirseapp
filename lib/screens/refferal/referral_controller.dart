@@ -54,31 +54,33 @@ class ReferralController extends GetxController {
 
   // Fetch Dashboard Data
   Future<void> fetchReferralDashboard() async {
-    try {
-      isDashboardLoading.value = true;
+  try {
+    isDashboardLoading.value = true;
 
-      final dashboard = await _referralService.fetchReferralDashboard();
-      if (dashboard != null && dashboard.success) {
-        final data = dashboard.dashboardData;
+    final dashboard = await _referralService.fetchReferralDashboard();
 
-        // Basic Stats
-        walletBalance.value = data?.stats?.walletBalance.toDouble() ?? 0.0;
-        totalEarnings.value = data?.stats?.totalEarnings.toDouble() ?? 0.0;
-        activeReferrals.value = data?.stats?.activeReferrals ?? 0;
-        totalReferrals.value = data?.stats?.totalReferrals ?? 0;
+    if (dashboard != null && dashboard.success) {
+      final data = dashboard.dashboardData;
 
-        // Referrals
-        referrals.assignAll(data?.referrals ?? []);
-        filteredReferrals.assignAll(referrals);
-      } else {
-        appSnackbar(error: true, content: "Failed to fetch referral dashboard");
-      }
-    } catch (e) {
-      appSnackbar(error: true, content: e.toString());
-    } finally {
-      isDashboardLoading.value = false;
+      // Stats
+      walletBalance.value = data?.stats?.walletBalance.toDouble() ?? 0.0;
+      totalEarnings.value = data?.stats?.totalEarnings.toDouble() ?? 0.0;
+      activeReferrals.value = data?.stats?.activeReferrals ?? 0;
+      totalReferrals.value = data?.stats?.totalReferrals ?? 0;
+
+      // Lists
+      referrals.assignAll(data?.referrals ?? []);
+      filteredReferrals.assignAll(referrals);
+
+    } else {
+      appSnackbar(error: true, content: "Failed to fetch referral dashboard");
     }
+  } catch (e) {
+    appSnackbar(error: true, content: e.toString());
+  } finally {
+    isDashboardLoading.value = false;
   }
+}
 
   Future<void> shareToWhatsApp() async {
     final message =
