@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -24,7 +23,7 @@ class InviteFriendDetailsScreen extends StatelessWidget {
         backgroundColor: AppColors.primaryColor,
         elevation: 0,
         title: appText(
-          AppStrings.refferalTitle,
+          AppStrings.refferal_details,
           fontSize: 18.sp,
           fontWeight: FontWeight.w600,
           color: AppColors.white,
@@ -34,7 +33,6 @@ class InviteFriendDetailsScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back, color: AppColors.white),
         ),
       ),
-
       body: SingleChildScrollView(
         padding: EdgeInsets.all(12.w),
         child: Column(
@@ -190,7 +188,7 @@ class InviteFriendDetailsScreen extends StatelessWidget {
                 separatorBuilder: (_, __) => SizedBox(height: 10.h),
                 itemBuilder: (context, index) {
                   final product = controller.products[index];
-                  return _buildProductCard(context , product);
+                  return _buildProductCard(context, product);
                 },
               );
             }),
@@ -202,7 +200,8 @@ class InviteFriendDetailsScreen extends StatelessWidget {
 }
 
 // Product Card Widget
-Widget _buildProductCard(BuildContext context,InviteFriendProductModel product ) {
+Widget _buildProductCard(
+    BuildContext context, InviteFriendProductModel product) {
   final isPending = product.pendingCount > 0;
 
   return Container(
@@ -224,14 +223,12 @@ Widget _buildProductCard(BuildContext context,InviteFriendProductModel product )
         // Title Row
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
           children: [
             appText(
               product.productName,
               fontSize: 15.sp,
               fontWeight: FontWeight.w700,
             ),
-
             appText(
               "${AppStrings.dp}${product.date}",
               fontSize: 12.sp,
@@ -302,7 +299,6 @@ Widget _buildProductCard(BuildContext context,InviteFriendProductModel product )
                 appText(
                   "${product.pendingCount} ${product.pendingLabel}",
                   fontSize: 13.sp,
-
                   color: isPending ? AppColors.red : AppColors.green,
                   fontWeight: FontWeight.w500,
                 ),
@@ -315,7 +311,6 @@ Widget _buildProductCard(BuildContext context,InviteFriendProductModel product )
                 padding: EdgeInsets.all(0.w),
                 borderRadius: BorderRadius.circular(6.r),
                 onTap: () => showProductDetailsDialog(context, product),
-
                 buttonColor: AppColors.primaryColor,
                 child: Center(
                   child: appText(

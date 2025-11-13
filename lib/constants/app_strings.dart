@@ -42,6 +42,7 @@ class AppStrings {
 
   // Refferal page
   static String refferalTitle = "Referral Details";
+  static String refferal_details = "Referral";
   static String referalBannerContent =
       "Invite Friends\nEarn Money\nStart Referring Today!";
   static String refer_via = "Refer Via";
@@ -97,4 +98,10 @@ class AppStrings {
   static String invalid_pass =
       'Password length should be minimum 8 with uppercase, lowercase, number, and special character.';
   static String invalid_phone = 'Please enter valid phone number';
+
+  //payment Succsess
+  static String confirm = "Confirm";
+  static String payment_Sucsess_note =
+      "Thank you for your payment!\nStay consistent with your daily payments and get your product when the plan completes.";
+  static String payment_Sucsess = "Payment success!";
 }
