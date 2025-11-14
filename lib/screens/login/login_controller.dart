@@ -65,7 +65,7 @@ class LoginController extends GetxController {
     if (APIService.internet) {
       await AuthService.signOut();
       String? idToken = await AuthService.googleLogin();
-      debugPrint(idToken,wrapWidth: 1024);
+      debugPrint(idToken, wrapWidth: 1024);
 
       if (idToken != null) {
         await userLogin(idToken);
@@ -82,36 +82,36 @@ class LoginController extends GetxController {
 
   //user login
   userLogin(String idToken) async {
-    Map<String, dynamic> body = {
-      'idToken': idToken,
-    };
+    // Map<String, dynamic> body = {
+    //   'idToken': idToken,
+    // };
 
-    var response = await APIService.postRequest(
-      url: AppURLs.LOGIN_API,
-      body: body,
-    );
+    // var response = await APIService.postRequest(
+    //   url: AppURLs.LOGIN_API,
+    //   body: body,
+    // );
 
-    print(response.toString());
+    // print(response.toString());
 
-    if (response != null) {
-      var responseData = json.decode(response.body);
-      print(responseData.toString());
+    // if (response != null) {
+    //   var responseData = json.decode(response.body);
+    //   print(responseData.toString());
 
-      if (response.statusCode == 200) {
-        print(responseData.toString());
-        storage.write(AppConst.USER_ID, responseData['data']['userId']);
-        storage.write(
-            AppConst.ACCESS_TOKEN, responseData['data']['accessToken']);
-        storage.write(
-            AppConst.REFRESH_TOKEN, responseData['data']['refreshToken']);
-        Get.offAll(() => DashboardScreen());
-      } else {
-        appSnackbar(
-          error: true,
-          content: responseData['message'] ?? AppStrings.something_went_wrong,
-        );
-        Get.offAll(() => DashboardScreen());
-      }
-    }
+    //   if (response.statusCode == 200) {
+    //     print(responseData.toString());
+    //     storage.write(AppConst.USER_ID, responseData['data']['userId']);
+    //     storage.write(
+    //         AppConst.ACCESS_TOKEN, responseData['data']['accessToken']);
+    //     storage.write(
+    //         AppConst.REFRESH_TOKEN, responseData['data']['refreshToken']);
+    //     Get.offAll(() => DashboardScreen());
+    //   } else {
+    //     appSnackbar(
+    //       error: true,
+    //       content: responseData['message'] ?? AppStrings.something_went_wrong,
+    //     );
+    //     Get.offAll(() => DashboardScreen());
+    //   }
+    // }
   }
 }

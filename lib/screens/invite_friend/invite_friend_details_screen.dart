@@ -11,14 +11,11 @@ import '../../widgets/app_button.dart';
 import '../../widgets/app_text.dart';
 import '../../widgets/product_details_dialog.dart';
 
-
 class InviteFriendDetailsScreen extends StatelessWidget {
   const InviteFriendDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController messageController = TextEditingController();
-
     final controller = Get.put(InviteFriendController());
 
     return Scaffold(
@@ -138,9 +135,7 @@ class InviteFriendDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       appButton(
-                        onTap: () {
-                         
-                        },
+                        onTap: () {},
                         width: 89.w,
                         height: 25.h,
                         padding: EdgeInsets.all(5.w),
