@@ -7,9 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:saoirse_app/screens/pendingTransaction/pendingTrancation.dart';
-import 'package:saoirse_app/screens/productListing/product_listing.dart';
-import 'package:saoirse_app/screens/transaction_succsess/transactionSuccsess.dart';
 
 import 'constants/app_colors.dart';
 import 'constants/app_strings.dart';
@@ -37,8 +34,7 @@ Future<void> main() async {
           messagingSenderId: '486829564070',
           projectId: 'saoirse-epi',
         ));
-  String? lang = storage
-      .read('language'); // ✅ use the GetStorage instance you already defined
+  String? lang = storage.read('language');
   Locale locale = lang != null ? Locale(lang) : const Locale('en');
 
   runApp(MyApp(locale: locale));
@@ -77,7 +73,7 @@ class MyApp extends StatelessWidget {
               textTheme: GoogleFonts.poppinsTextTheme(),
               highlightColor: AppColors.transparent,
               splashColor: AppColors.transparent,
-              useMaterial3: true, // optional modern UI
+              useMaterial3: true,
             ),
             scrollBehavior: CustomScrollBehavior(),
             home: SplashScreen(),
