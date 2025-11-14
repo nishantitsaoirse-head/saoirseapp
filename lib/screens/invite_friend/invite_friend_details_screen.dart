@@ -11,7 +11,6 @@ import '../../widgets/app_button.dart';
 import '../../widgets/app_text.dart';
 import '../../widgets/product_details_dialog.dart';
 
-
 class InviteFriendDetailsScreen extends StatelessWidget {
   const InviteFriendDetailsScreen({super.key});
 
@@ -79,19 +78,21 @@ class InviteFriendDetailsScreen extends StatelessWidget {
                             height: 38.h,
                             borderRadius: BorderRadius.circular(10.r),
                             buttonColor: AppColors.buttonSecondary,
-                            child: Column(
-                              children: [
-                                appText(
-                                  AppStrings.total_product,
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                appText(
-                                  "2",
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ],
+                            child: FittedBox(
+                              child: Column(
+                                children: [
+                                  appText(
+                                    AppStrings.total_product,
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  appText(
+                                    "2",
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           appButton(
@@ -101,19 +102,21 @@ class InviteFriendDetailsScreen extends StatelessWidget {
                             height: 38.h,
                             borderRadius: BorderRadius.circular(10.r),
                             buttonColor: AppColors.mediumGreen,
-                            child: Column(
-                              children: [
-                                appText(
-                                  AppStrings.my_commission,
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                appText(
-                                  "₹840",
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ],
+                            child: FittedBox(
+                              child: Column(
+                                children: [
+                                  appText(
+                                    AppStrings.my_commission,
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  appText(
+                                    "₹840",
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -138,9 +141,7 @@ class InviteFriendDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       appButton(
-                        onTap: () {
-                         
-                        },
+                        onTap: () {},
                         width: 89.w,
                         height: 25.h,
                         padding: EdgeInsets.all(5.w),

@@ -123,58 +123,51 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Padding(
                                     padding: EdgeInsets.symmetric(
                                       horizontal: 24.w,
-                                      vertical: 20.h,
+                                      vertical: 10.h,
                                     ),
                                     child: Align(
                                       alignment: Alignment.centerLeft,
-                                      child: FittedBox(
-                                        alignment: Alignment.centerLeft,
-                                        fit: BoxFit.scaleDown,
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            appText(
-                                              "Stylish",
-                                              fontSize: 24.sp,
-                                              color: AppColors.white,
-                                              fontWeight: FontWeight.w800,
-                                              fontStyle: FontStyle.italic,
-                                              fontFamily: "Times New Roman",
-                                            ),
-                                            SizedBox(height: 8.h),
-                                            appText(
-                                              AppStrings.card_discription,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          appText(
+                                            "Stylish",
+                                            fontSize: 24.sp,
+                                            color: AppColors.white,
+                                            fontWeight: FontWeight.w800,
+                                            fontStyle: FontStyle.italic,
+                                            fontFamily: "Times New Roman",
+                                          ),
+                                          SizedBox(height: 2.h),
+                                          appText(
+                                            AppStrings.card_discription,
+                                            maxLines: 2,
+                                            fontSize: 11.sp,
+                                            textAlign: TextAlign.left,
+                                            color: AppColors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          SizedBox(height: 5.h),
+                                          appButton(
+                                            width: 150.w,
+                                            height: 35.h,
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 15.w,
+                                                vertical: 5.h),
+                                            onTap: () {},
+                                            buttonColor: AppColors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(8.r),
+                                            child: appText(
+                                              AppStrings.btton_lebel,
+                                              color: AppColors.textBlack,
                                               fontSize: 12.sp,
-                                              textAlign: TextAlign.left,
-                                              color: AppColors.white,
                                               fontWeight: FontWeight.bold,
                                             ),
-                                            SizedBox(height: 16.h),
-                                            appButton(
-                                              onTap: () {},
-                                              buttonText:
-                                                  AppStrings.btton_lebel,
-                                              buttonColor: AppColors.white,
-                                              textColor: AppColors.textBlack,
-                                              fontSize: 13.sp,
-                                              fontWeight: FontWeight.bold,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.r),
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: 37.w,
-                                                vertical: 11.h,
-                                              ),
-                                              child: appText(
-                                                AppStrings.btton_lebel,
-                                                color: AppColors.textBlack,
-                                                fontSize: 13.sp,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -196,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Positioned(
-                      bottom: 10.h,
+                      bottom: 8.h,
                       child: Obx(
                         () => Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -939,12 +932,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               right: 35.w,
                               child: appButton(
                                 onTap: () {},
+                                width: 195.w,
+                                height: 45.h,
                                 buttonColor: AppColors.white,
                                 borderRadius: BorderRadius.circular(12),
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 34.w,
-                                  vertical: 10.h,
-                                ),
+                                padding: EdgeInsets.symmetric(),
                                 // Simulate elevation using BoxShadow
                                 child: appText(
                                   AppStrings.refer_button_lebel,

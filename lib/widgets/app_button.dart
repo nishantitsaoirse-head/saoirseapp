@@ -24,7 +24,7 @@ Widget appButton({
     onTap: onTap,
     borderRadius: borderRadius ?? BorderRadius.circular(15.r),
     child: Container(
-      width: width ?? double.infinity,
+      width: width,
       height: height ?? 48.h,
       padding: padding ?? EdgeInsets.symmetric(vertical: 10.h),
       decoration: BoxDecoration(
@@ -45,9 +45,8 @@ Widget appButton({
                     fontSize: fontSize ?? 16.sp,
                     fontWeight: fontWeight ?? FontWeight.w600,
                   )
-                : const SizedBox()), 
+                : const SizedBox()),
       ),
     ),
   );
 }
-
